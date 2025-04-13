@@ -103,7 +103,7 @@ const sportsData = [
     sport: "Tennis",
     nationality: "France",
     birthDate: "4 juillet 1963",
-    description: "Henri Leconte est un ancien joueur de tennis français. Il a atteint la 5e place mondiale en 1986 et a remporté la Coupe Davis en 1991.",
+    description: "Henri Leconte est un joueur de tennis français. Il a atteint la 5e place mondiale en 1986 et a remporté la Coupe Davis en 1991.",
     price: 120,
     forSale: true,
     events: [
