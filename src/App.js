@@ -1,24 +1,43 @@
-import logo from './logo.svg';
-import './App.css';
+import React from 'react';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import { ThemeProvider, CssBaseline, Box } from '@mui/material';
+import theme from './theme/theme';
+
+// Components
+import Navbar from './components/Navbar';
+import Footer from './components/Footer';
+import HomePage from './components/HomePage';
+import CollectionPage from './components/CollectionPage';
+import ShopPage from './components/ShopPage';
+import AccountPage from './components/AccountPage';
+import AthleteDetail from './components/AthleteDetail';
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
+    <ThemeProvider theme={theme}>
+      <CssBaseline />
+      <Router>
+        <Box
+          sx={{
+            display: 'flex',
+            flexDirection: 'column',
+            minHeight: '100vh',
+          }}
         >
-          Learn React
-        </a>
-      </header>
-    </div>
+          <Navbar />
+          <Box component="main" sx={{ flexGrow: 1 }}>
+            <Routes>
+              <Route path="/" element={<HomePage />} />
+              <Route path="/collection" element={<CollectionPage />} />
+              <Route path="/shop" element={<ShopPage />} />
+              <Route path="/account" element={<AccountPage />} />
+              <Route path="/athlete/:id" element={<AthleteDetail />} />
+            </Routes>
+          </Box>
+          <Footer />
+        </Box>
+      </Router>
+    </ThemeProvider>
   );
 }
 

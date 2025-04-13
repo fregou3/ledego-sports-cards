@@ -1,0 +1,13 @@
+services:
+  - type: web
+    name: ledego-sports-cards
+    env: static
+    buildCommand: npm run build
+    staticPublishPath: build
+    envVars:
+      - key: NODE_VERSION
+        value: 18.15.0
+    routes:
+      - type: rewrite
+        source: /*
+        destination: /index.html

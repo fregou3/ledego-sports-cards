@@ -1,6 +1,8 @@
-# Getting Started with Create React App
+# Ledego Sports Cards
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Une application responsive en ReactJS pour collectionner, vendre et acheter des fiches de grands sportifs. L'application présente une structure à deux niveaux : un premier niveau pour les profils des sportifs et un second niveau pour les événements marquants et les couvertures de magazines.
+
+Ce projet a été créé avec [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
 
@@ -28,6 +30,21 @@ The build is minified and the filenames include the hashes.\
 Your app is ready to be deployed!
 
 See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+
+## Déploiement sur Render
+
+Cette application est configurée pour être déployée facilement sur Render. Suivez ces étapes :
+
+1. Créez un compte sur [Render](https://render.com/) si vous n'en avez pas déjà un
+2. Connectez votre dépôt GitHub à Render
+3. Cliquez sur "New Web Service" et sélectionnez votre dépôt
+4. Configurez le service avec les paramètres suivants :
+   - **Environment**: Static Site
+   - **Build Command**: `npm run build`
+   - **Publish Directory**: `build`
+5. Cliquez sur "Create Web Service"
+
+L'application utilise également un fichier `render.yaml` pour une configuration automatique.
 
 ### `npm run eject`
 
