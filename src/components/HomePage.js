@@ -149,16 +149,25 @@ const HomePage = () => {
                 }
               }}
             >
-              <Box sx={{ position: 'relative', overflow: 'hidden', height: 220 }}>
+              <Box sx={{ 
+                position: 'relative', 
+                overflow: 'hidden', 
+                height: 0,
+                paddingTop: '100%', // Format carré 1:1
+                width: '100%'
+              }}>
                 <CardMedia
                   component="img"
                   image={athlete.profileImage}
                   alt={athlete.name}
                   sx={{ 
+                    position: 'absolute',
+                    top: 0,
+                    left: 0,
                     height: '100%',
                     width: '100%',
                     objectFit: 'cover',
-                    objectPosition: 'center 15%',
+                    objectPosition: 'center 10%', // Meilleur centrage sur le visage
                     transition: 'transform 0.5s ease-in-out',
                     '&:hover': {
                       transform: 'scale(1.05)'
