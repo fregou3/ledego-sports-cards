@@ -8,7 +8,7 @@ const artistsData = [
     nationality: "France",
     birthDate: "10 mai 1969",
     description: "Bob Sinclar est un DJ et producteur de musique électronique français. Il est connu pour ses tubes comme 'Love Generation' et 'World, Hold On'.",
-    price: 180,
+    price: 36,
     forSale: true,
     events: [
       {
@@ -17,7 +17,7 @@ const artistsData = [
         image: "/images/profiles/BobSinclar/tournee_2012.jpg",
         date: "2012",
         description: "Tournée mondiale de Bob Sinclar qui a marqué l'apogée de sa carrière avec des concerts dans plus de 30 pays.",
-        price: 120,
+        price: 19,
         forSale: true,
       }
     ],
@@ -28,7 +28,7 @@ const artistsData = [
         image: "/images/profiles/BobSinclar/dj_mag_2008.jpg",
         date: "2008",
         description: "Couverture du magazine DJ Mag avec Bob Sinclar classé parmi les meilleurs DJs mondiaux.",
-        price: 90,
+        price: 18,
         forSale: true,
       }
     ]

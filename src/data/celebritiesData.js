@@ -8,7 +8,7 @@ const celebritiesData = [
     nationality: "France",
     birthDate: "9 avril 1950",
     description: "Pierre Gagnaire est un chef cuisinier français trois étoiles au Guide Michelin. Il est reconnu pour sa cuisine créative et innovante qui repousse les limites de la gastronomie.",
-    price: 220,
+    price: 40,
     forSale: true,
     events: [
       {
@@ -17,7 +17,7 @@ const celebritiesData = [
         image: "/images/profiles/PierreGagnaire/restaurant_paris.jpg",
         date: "1996",
         description: "Ouverture de son restaurant éponyme à Paris, qui a obtenu trois étoiles au Guide Michelin en seulement deux ans.",
-        price: 170,
+        price: 20,
         forSale: true,
       }
     ],
@@ -28,7 +28,7 @@ const celebritiesData = [
         image: "/images/profiles/PierreGagnaire/le_chef_2010.jpg",
         date: "2010",
         description: "Couverture du magazine Le Chef consacrée à Pierre Gagnaire et sa vision révolutionnaire de la cuisine française contemporaine.",
-        price: 130,
+        price: 19,
         forSale: true,
       }
     ]
