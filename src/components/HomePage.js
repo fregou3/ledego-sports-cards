@@ -88,7 +88,7 @@ const HomePage = () => {
               fontWeight: 'bold'
             }}
           >
-            Découvrir la Collection
+            Découvrir toutes les Collections
           </Button>
         </MotionBox>
         
@@ -121,7 +121,7 @@ const HomePage = () => {
 
       {/* Main Categories Section */}
       <Typography variant="h3" component="h2" gutterBottom sx={{ mb: 4, textAlign: 'center' }}>
-        Nos Collections
+        Notre Sélection
       </Typography>
       
       <Box sx={{ mb: 6 }}>
