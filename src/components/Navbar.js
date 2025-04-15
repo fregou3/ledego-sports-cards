@@ -76,7 +76,7 @@ const Navbar = () => {
           )}
           <Typography variant="h6" component={Link} to="/" sx={{ flexGrow: 1, textDecoration: 'none', color: 'inherit', display: 'flex', alignItems: 'center' }}>
             <SportsBaseballIcon sx={{ mr: 1 }} />
-            Ledego Sports Cards
+            Ledego Celebrities Cards
           </Typography>
           {!isMobile && (
             <Box sx={{ display: 'flex' }}>

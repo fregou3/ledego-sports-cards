@@ -144,7 +144,7 @@ const ShopPage = () => {
           />
           <Tab 
             icon={<MenuBookIcon />} 
-            label="Magazines" 
+            label="LIVRES / MAGAZINES" 
             id="tab-2" 
             aria-controls="tabpanel-2" 
           />
@@ -222,13 +222,26 @@ const ShopPage = () => {
                 flexDirection: 'column'
               }}
             >
-              <CardMedia
-                component="img"
-                height={tabValue === 0 ? "300" : "250"}
-                image={item.profileImage || item.image}
-                alt={item.name || item.title}
-                sx={{ objectFit: 'cover' }}
-              />
+              <Box sx={{ 
+                position: 'relative', 
+                paddingTop: '100%', /* Format carré 1:1 */
+                overflow: 'hidden'
+              }}>
+                <CardMedia
+                  component="img"
+                  image={item.profileImage || item.image}
+                  alt={item.name || item.title}
+                  sx={{ 
+                    position: 'absolute',
+                    top: 0,
+                    left: 0,
+                    width: '100%',
+                    height: '100%',
+                    objectFit: 'cover',
+                    objectPosition: 'center center' /* Meilleur centrage */
+                  }}
+                />
+              </Box>
               <CardContent sx={{ flexGrow: 1 }}>
                 <Typography variant="h5" component="h2" gutterBottom>
                   {item.name || item.title}

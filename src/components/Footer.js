@@ -32,12 +32,12 @@ const Footer = () => {
             <Box sx={{ display: 'flex', alignItems: 'center', mb: 2 }}>
               <SportsBaseballIcon sx={{ mr: 1, fontSize: '2rem' }} />
               <Typography variant="h5" component="div">
-                Ledego Sports Cards
+                Ledego Celebrities Cards
               </Typography>
             </Box>
             <Typography variant="body2" sx={{ mb: 3 }}>
-              Votre plateforme de collection, d'achat et de vente de cartes de grands sportifs.
-              Découvrez notre sélection unique de fiches de sportifs, d'événements et de couvertures de magazines.
+              Votre plateforme de collection, d'achat et de vente de cartes de célébrités et personnalités.
+              Découvrez notre sélection unique de fiches de sportifs, d'artistes, de célébrités et leurs événements marquants.
             </Typography>
             <Box>
               <IconButton color="inherit" aria-label="Facebook">
@@ -97,7 +97,7 @@ const Footer = () => {
               </Box>
               <Box component="li" sx={{ mb: 1 }}>
                 <Link component={RouterLink} to="/shop?tab=2" color="inherit" underline="hover">
-                  Magazines
+                  LIVRES / MAGAZINES
                 </Link>
               </Box>
             </Box>

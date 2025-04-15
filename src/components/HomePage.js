@@ -13,16 +13,18 @@ import {
 import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
 import sportsData from '../data/sportsData';
+import artistsData from '../data/artistsData';
+import celebritiesData from '../data/celebritiesData';
 
 // Wrapper for Framer Motion
 const MotionBox = motion(Box);
 const MotionCard = motion(Card);
 
 const HomePage = () => {
-  // All athletes from our data
+  // All data from our collections
   const athletes = sportsData;
-  // Featured athlete (first one in our data for events and magazines sections)
-  const featuredAthlete = athletes[0];
+  const artists = artistsData;
+  const celebrities = celebritiesData;
   
   // Animation variants
   const containerVariants = {
@@ -68,10 +70,10 @@ const HomePage = () => {
           sx={{ position: 'relative', zIndex: 2 }}
         >
           <Typography variant="h2" component="h1" gutterBottom>
-            Collectionnez les Légendes du Sport
+            Collectionnez les moments marquants des célébrités et légendes du sport
           </Typography>
           <Typography variant="h5" sx={{ mb: 4, maxWidth: '70%' }}>
-            Achetez, vendez et échangez des cartes de collection de vos sportifs préférés
+            Achetez, vendez et échangez des cartes de collection de vos personnalités préférées
           </Typography>
           <Button 
             variant="contained" 
@@ -117,35 +119,36 @@ const HomePage = () => {
         />
       </Paper>
 
-      {/* Athletes Section */}
-      <Typography variant="h3" component="h2" gutterBottom sx={{ mb: 4 }}>
-        Nos Sportifs
+      {/* Main Categories Section */}
+      <Typography variant="h3" component="h2" gutterBottom sx={{ mb: 4, textAlign: 'center' }}>
+        Nos Collections
       </Typography>
       
-      <MotionBox
-        component={Grid}
-        container
-        spacing={3}
-        sx={{ mb: 6 }}
-        variants={containerVariants}
-        initial="hidden"
-        animate="visible"
-      >
-        {athletes.map((athlete) => (
-          <Grid item xs={12} sm={6} md={3} key={athlete.id}>
+      <Box sx={{ mb: 6 }}>
+        <Box sx={{ display: 'flex', flexWrap: 'wrap', margin: -2 }}>
+          {/* Sportifs Column */}
+          <Box sx={{ width: { xs: '100%', md: '33.33%' }, p: 2 }}>
+            <Box sx={{ borderBottom: '2px solid #1976d2', mb: 2, pb: 1 }}>
+              <Typography variant="h4" component="h2" gutterBottom sx={{ fontWeight: 'bold', color: '#1976d2' }}>
+                Sportifs
+              </Typography>
+            </Box>
+          
+          {athletes.map((athlete) => (
             <MotionCard 
+              key={athlete.id}
               variants={itemVariants}
               sx={{ 
-                height: '100%',
+                mb: 3,
                 display: 'flex',
                 flexDirection: 'column',
                 transition: 'transform 0.3s ease-in-out',
                 borderRadius: 2,
                 overflow: 'hidden',
-                boxShadow: '0 4px 12px rgba(0,0,0,0.08)',
+                boxShadow: '0 2px 8px rgba(0,0,0,0.05)',
                 '&:hover': {
-                  transform: 'translateY(-8px)',
-                  boxShadow: '0 8px 16px rgba(0,0,0,0.12)'
+                  transform: 'translateY(-5px)',
+                  boxShadow: '0 4px 12px rgba(0,0,0,0.08)'
                 }
               }}
             >
@@ -183,7 +186,7 @@ const HomePage = () => {
                   {athlete.sport}
                 </Typography>
                 <Typography variant="body2" color="text.secondary" paragraph sx={{ mb: 2, flexGrow: 1, fontSize: '0.875rem' }}>
-                  {athlete.description.substring(0, 90)}...
+                  {athlete.description.substring(0, 70)}...
                 </Typography>
                 <Box sx={{ mt: 'auto' }}>
                   <Button 
@@ -191,7 +194,6 @@ const HomePage = () => {
                     color="primary"
                     component={Link}
                     to={`/athlete/${athlete.id}`}
-                    fullWidth
                     size="small"
                     sx={{ borderRadius: 4, textTransform: 'none', fontWeight: 'bold' }}
                   >
@@ -200,9 +202,168 @@ const HomePage = () => {
                 </Box>
               </CardContent>
             </MotionCard>
-          </Grid>
-        ))}
-      </MotionBox>
+          ))}
+          </Box>
+
+          {/* Artistes Column */}
+          <Box sx={{ width: { xs: '100%', md: '33.33%' }, p: 2 }}>
+            <Box sx={{ borderBottom: '2px solid #9c27b0', mb: 2, pb: 1 }}>
+              <Typography variant="h4" component="h2" gutterBottom sx={{ fontWeight: 'bold', color: '#9c27b0', textAlign: 'center' }}>
+                Artistes
+              </Typography>
+            </Box>
+          
+          {artists.map((artist) => (
+            <MotionCard 
+              key={artist.id}
+              variants={itemVariants}
+              sx={{ 
+                mb: 3,
+                display: 'flex',
+                flexDirection: 'column',
+                transition: 'transform 0.3s ease-in-out',
+                borderRadius: 2,
+                overflow: 'hidden',
+                boxShadow: '0 2px 8px rgba(0,0,0,0.05)',
+                '&:hover': {
+                  transform: 'translateY(-5px)',
+                  boxShadow: '0 4px 12px rgba(0,0,0,0.08)'
+                }
+              }}
+            >
+              <Box sx={{ 
+                position: 'relative', 
+                overflow: 'hidden', 
+                height: 0,
+                paddingTop: '100%', // Format carré 1:1
+                width: '100%'
+              }}>
+                <CardMedia
+                  component="img"
+                  image={artist.profileImage}
+                  alt={artist.name}
+                  sx={{ 
+                    position: 'absolute',
+                    top: 0,
+                    left: 0,
+                    height: '100%',
+                    width: '100%',
+                    objectFit: 'cover',
+                    objectPosition: 'center 10%', // Meilleur centrage sur le visage
+                    transition: 'transform 0.5s ease-in-out',
+                    '&:hover': {
+                      transform: 'scale(1.05)'
+                    }
+                  }}
+                />
+              </Box>
+              <CardContent sx={{ flexGrow: 1, display: 'flex', flexDirection: 'column', p: 2 }}>
+                <Typography variant="h5" component="h3" gutterBottom sx={{ fontWeight: 'bold' }}>
+                  {artist.name}
+                </Typography>
+                <Typography variant="subtitle1" color="secondary" gutterBottom sx={{ mb: 1 }}>
+                  {artist.art}
+                </Typography>
+                <Typography variant="body2" color="text.secondary" paragraph sx={{ mb: 2, flexGrow: 1, fontSize: '0.875rem' }}>
+                  {artist.description.substring(0, 70)}...
+                </Typography>
+                <Box sx={{ mt: 'auto' }}>
+                  <Button 
+                    variant="contained" 
+                    color="secondary"
+                    component={Link}
+                    to={`/artist/${artist.id}`}
+                    size="small"
+                    sx={{ borderRadius: 4, textTransform: 'none', fontWeight: 'bold' }}
+                  >
+                    Voir le Profil
+                  </Button>
+                </Box>
+              </CardContent>
+            </MotionCard>
+          ))}
+          </Box>
+
+          {/* Célébrités Column */}
+          <Box sx={{ width: { xs: '100%', md: '33.33%' }, p: 2 }}>
+            <Box sx={{ borderBottom: '2px solid #f50057', mb: 2, pb: 1 }}>
+              <Typography variant="h4" component="h2" gutterBottom sx={{ fontWeight: 'bold', color: '#f50057', textAlign: 'right' }}>
+                Célébrités
+              </Typography>
+            </Box>
+          
+          {celebrities.map((celebrity) => (
+            <MotionCard 
+              key={celebrity.id}
+              variants={itemVariants}
+              sx={{ 
+                mb: 3,
+                display: 'flex',
+                flexDirection: 'column',
+                transition: 'transform 0.3s ease-in-out',
+                borderRadius: 2,
+                overflow: 'hidden',
+                boxShadow: '0 2px 8px rgba(0,0,0,0.05)',
+                '&:hover': {
+                  transform: 'translateY(-5px)',
+                  boxShadow: '0 4px 12px rgba(0,0,0,0.08)'
+                }
+              }}
+            >
+              <Box sx={{ 
+                position: 'relative', 
+                overflow: 'hidden', 
+                height: 0,
+                paddingTop: '100%', // Format carré 1:1
+                width: '100%'
+              }}>
+                <CardMedia
+                  component="img"
+                  image={celebrity.profileImage}
+                  alt={celebrity.name}
+                  sx={{ 
+                    position: 'absolute',
+                    top: 0,
+                    left: 0,
+                    height: '100%',
+                    width: '100%',
+                    objectFit: 'cover',
+                    objectPosition: 'center 10%', // Meilleur centrage sur le visage
+                    transition: 'transform 0.5s ease-in-out',
+                    '&:hover': {
+                      transform: 'scale(1.05)'
+                    }
+                  }}
+                />
+              </Box>
+              <CardContent sx={{ flexGrow: 1, display: 'flex', flexDirection: 'column', p: 2 }}>
+                <Typography variant="h5" component="h3" gutterBottom sx={{ fontWeight: 'bold' }}>
+                  {celebrity.name}
+                </Typography>
+                <Typography variant="subtitle1" color="error" gutterBottom sx={{ mb: 1 }}>
+                  {celebrity.profession}
+                </Typography>
+                <Typography variant="body2" color="text.secondary" paragraph sx={{ mb: 2, flexGrow: 1, fontSize: '0.875rem' }}>
+                  {celebrity.description.substring(0, 70)}...
+                </Typography>
+                <Box sx={{ mt: 'auto' }}>
+                  <Button 
+                    variant="contained" 
+                    color="error"
+                    component={Link}
+                    to={`/celebrity/${celebrity.id}`}
+                    size="small"
+                    sx={{ borderRadius: 4, textTransform: 'none', fontWeight: 'bold' }}
+                  >
+                    Voir le Profil
+                  </Button>
+                </Box>
+              </CardContent>
+            </MotionCard>
+          ))}
+          </Box>
+        </Box>
+      </Box>
 
       {/* Call to Action Section */}
       <Box 

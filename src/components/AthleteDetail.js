@@ -20,17 +20,37 @@ import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
 import EventIcon from '@mui/icons-material/Event';
 import MenuBookIcon from '@mui/icons-material/MenuBook';
 import sportsData from '../data/sportsData';
+import artistsData from '../data/artistsData';
+import celebritiesData from '../data/celebritiesData';
 
 // Motion components
 const MotionBox = motion(Box);
 const MotionCard = motion(Card);
 
-const AthleteDetail = () => {
+const AthleteDetail = ({ type = 'athlete' }) => {
   const { id } = useParams();
   const [tabValue, setTabValue] = useState(0);
   
-  // Find athlete by id
-  const athlete = sportsData.find(athlete => athlete.id === parseInt(id)) || sportsData[0];
+  // Determine which data source to use based on type
+  let dataSource;
+  let profileType;
+  
+  switch(type) {
+    case 'artist':
+      dataSource = artistsData;
+      profileType = 'artist';
+      break;
+    case 'celebrity':
+      dataSource = celebritiesData;
+      profileType = 'celebrity';
+      break;
+    default:
+      dataSource = sportsData;
+      profileType = 'athlete';
+  }
+  
+  // Find profile by id
+  const athlete = dataSource.find(item => item.id === parseInt(id)) || dataSource[0];
 
   const handleTabChange = (event, newValue) => {
     setTabValue(newValue);
@@ -96,15 +116,47 @@ const AthleteDetail = () => {
             </Typography>
             
             <Box sx={{ display: 'flex', gap: 1, mb: 3 }}>
-              <Chip 
-                label={athlete.sport} 
-                color="primary" 
-                sx={{ fontWeight: 'bold' }}
-              />
-              <Chip 
-                label={athlete.nationality} 
-                variant="outlined"
-              />
+              {profileType === 'athlete' && (
+                <>
+                  <Chip 
+                    label={athlete.sport} 
+                    color="primary" 
+                    sx={{ fontWeight: 'bold' }}
+                  />
+                  <Chip 
+                    label={athlete.nationality} 
+                    variant="outlined"
+                  />
+                </>
+              )}
+              
+              {profileType === 'artist' && (
+                <>
+                  <Chip 
+                    label={athlete.art} 
+                    color="secondary" 
+                    sx={{ fontWeight: 'bold' }}
+                  />
+                  <Chip 
+                    label={athlete.nationality} 
+                    variant="outlined"
+                  />
+                </>
+              )}
+              
+              {profileType === 'celebrity' && (
+                <>
+                  <Chip 
+                    label={athlete.profession} 
+                    color="error" 
+                    sx={{ fontWeight: 'bold' }}
+                  />
+                  <Chip 
+                    label={athlete.nationality} 
+                    variant="outlined"
+                  />
+                </>
+              )}
             </Box>
             
             <Typography variant="body1" paragraph sx={{ mb: 3 }}>
@@ -160,7 +212,7 @@ const AthleteDetail = () => {
           />
           <Tab 
             icon={<MenuBookIcon />} 
-            label="Magazines" 
+            label="LIVRES / MAGAZINES" 
             id="tab-1" 
             aria-controls="tabpanel-1" 
           />
@@ -186,16 +238,26 @@ const AthleteDetail = () => {
             {athlete.events.map((event) => (
               <Grid item xs={12} sm={6} md={4} key={event.id}>
                 <MotionCard variants={itemVariants} sx={{ height: '100%' }}>
-                  <CardMedia
-                    component="img"
-                    height="280"
-                    image={event.image}
-                    alt={event.title}
-                    sx={{ 
-                      objectFit: 'cover',
-                      objectPosition: 'center top'
-                    }}
-                  />
+                  <Box sx={{ 
+                    position: 'relative', 
+                    paddingTop: '100%', /* Format carré 1:1 */
+                    overflow: 'hidden'
+                  }}>
+                    <CardMedia
+                      component="img"
+                      image={event.image}
+                      alt={event.title}
+                      sx={{ 
+                        position: 'absolute',
+                        top: 0,
+                        left: 0,
+                        width: '100%',
+                        height: '100%',
+                        objectFit: 'cover',
+                        objectPosition: 'center center' /* Meilleur centrage */
+                      }}
+                    />
+                  </Box>
                   <CardContent>
                     <Typography variant="h5" component="h3" gutterBottom>
                       {event.title}
@@ -246,16 +308,26 @@ const AthleteDetail = () => {
             {athlete.magazines.map((magazine) => (
               <Grid item xs={12} sm={6} md={4} key={magazine.id}>
                 <MotionCard variants={itemVariants} sx={{ height: '100%' }}>
-                  <CardMedia
-                    component="img"
-                    height="320"
-                    image={magazine.image}
-                    alt={magazine.title}
-                    sx={{ 
-                      objectFit: 'cover',
-                      objectPosition: 'center top'
-                    }}
-                  />
+                  <Box sx={{ 
+                    position: 'relative', 
+                    paddingTop: '100%', /* Format carré 1:1 */
+                    overflow: 'hidden'
+                  }}>
+                    <CardMedia
+                      component="img"
+                      image={magazine.image}
+                      alt={magazine.title}
+                      sx={{ 
+                        position: 'absolute',
+                        top: 0,
+                        left: 0,
+                        width: '100%',
+                        height: '100%',
+                        objectFit: 'cover',
+                        objectPosition: 'center center' /* Meilleur centrage */
+                      }}
+                    />
+                  </Box>
                   <CardContent>
                     <Typography variant="h5" component="h3" gutterBottom>
                       {magazine.title}

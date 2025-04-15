@@ -31,7 +31,9 @@ function App() {
               <Route path="/collection" element={<CollectionPage />} />
               <Route path="/shop" element={<ShopPage />} />
               <Route path="/account" element={<AccountPage />} />
-              <Route path="/athlete/:id" element={<AthleteDetail />} />
+              <Route path="/athlete/:id" element={<AthleteDetail type="athlete" />} />
+              <Route path="/artist/:id" element={<AthleteDetail type="artist" />} />
+              <Route path="/celebrity/:id" element={<AthleteDetail type="celebrity" />} />
             </Routes>
           </Box>
           <Footer />
