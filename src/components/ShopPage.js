@@ -26,7 +26,7 @@ import SearchIcon from '@mui/icons-material/Search';
 import FilterListIcon from '@mui/icons-material/FilterList';
 import PersonIcon from '@mui/icons-material/Person';
 import EventIcon from '@mui/icons-material/Event';
-import MenuBookIcon from '@mui/icons-material/MenuBook';
+
 import sportsData from '../data/sportsData';
 
 // Motion components
@@ -42,14 +42,13 @@ const ShopPage = () => {
   // Get all items
   const athletes = sportsData;
   const events = athletes.flatMap(athlete => athlete.events);
-  const magazines = athletes.flatMap(athlete => athlete.magazines);
+
   
   // Determine which items to show based on tab
   const getItemsForTab = () => {
     switch(tabValue) {
       case 0: return athletes;
       case 1: return events;
-      case 2: return magazines;
       default: return athletes;
     }
   };
@@ -142,12 +141,7 @@ const ShopPage = () => {
             id="tab-1" 
             aria-controls="tabpanel-1" 
           />
-          <Tab 
-            icon={<MenuBookIcon />} 
-            label="LIVRES / MAGAZINES" 
-            id="tab-2" 
-            aria-controls="tabpanel-2" 
-          />
+
         </Tabs>
       </Paper>
       

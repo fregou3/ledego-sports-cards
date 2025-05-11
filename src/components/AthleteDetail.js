@@ -1,5 +1,5 @@
-import React, { useState } from 'react';
-import { useParams, Link } from 'react-router-dom';
+import React from 'react';
+import { useParams } from 'react-router-dom';
 import { 
   Container, 
   Grid, 
@@ -9,8 +9,6 @@ import {
   CardContent, 
   Box, 
   Button, 
-  Tabs, 
-  Tab, 
   Chip,
   Divider,
   Paper
@@ -18,7 +16,6 @@ import {
 import { motion } from 'framer-motion';
 import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
 import EventIcon from '@mui/icons-material/Event';
-import MenuBookIcon from '@mui/icons-material/MenuBook';
 import sportsData from '../data/sportsData';
 import artistsData from '../data/artistsData';
 import celebritiesData from '../data/celebritiesData';
@@ -29,8 +26,6 @@ const MotionCard = motion(Card);
 
 const AthleteDetail = ({ type = 'athlete' }) => {
   const { id } = useParams();
-  const [tabValue, setTabValue] = useState(0);
-  
   // Determine which data source to use based on type
   let dataSource;
   let profileType;
@@ -52,9 +47,7 @@ const AthleteDetail = ({ type = 'athlete' }) => {
   // Find profile by id
   const athlete = dataSource.find(item => item.id === parseInt(id)) || dataSource[0];
 
-  const handleTabChange = (event, newValue) => {
-    setTabValue(newValue);
-  };
+
 
   // Animation variants
   const containerVariants = {
@@ -194,169 +187,74 @@ const AthleteDetail = ({ type = 'athlete' }) => {
         </Grid>
       </Grid>
 
-      {/* Tabs for Events and Magazine Covers */}
-      <Paper elevation={0} sx={{ mb: 4, borderRadius: 2, overflow: 'hidden' }}>
-        <Tabs 
-          value={tabValue} 
-          onChange={handleTabChange} 
-          variant="fullWidth"
-          textColor="primary"
-          indicatorColor="primary"
-          aria-label="athlete content tabs"
-        >
-          <Tab 
-            icon={<EventIcon />} 
-            label="Événements" 
-            id="tab-0" 
-            aria-controls="tabpanel-0" 
-          />
-          <Tab 
-            icon={<MenuBookIcon />} 
-            label="LIVRES / MAGAZINES" 
-            id="tab-1" 
-            aria-controls="tabpanel-1" 
-          />
-        </Tabs>
+      {/* Events Section */}
+      <Paper sx={{ mb: 4 }}>
+        <Box sx={{ p: 2, display: 'flex', alignItems: 'center' }}>
+          <EventIcon sx={{ mr: 1 }} />
+          <Typography variant="h6">Événements</Typography>
+        </Box>
       </Paper>
 
-      {/* Events Tab Panel */}
-      <Box
-        role="tabpanel"
-        hidden={tabValue !== 0}
-        id="tabpanel-0"
-        aria-labelledby="tab-0"
-      >
-        {tabValue === 0 && (
-          <MotionBox
-            component={Grid}
-            container
-            spacing={3}
-            variants={containerVariants}
-            initial="hidden"
-            animate="visible"
-          >
-            {athlete.events.map((event) => (
-              <Grid item xs={12} sm={6} md={4} key={event.id}>
-                <MotionCard variants={itemVariants} sx={{ height: '100%' }}>
-                  <Box sx={{ 
-                    position: 'relative', 
-                    paddingTop: '100%', /* Format carré 1:1 */
-                    overflow: 'hidden'
-                  }}>
-                    <CardMedia
-                      component="img"
-                      image={event.image}
-                      alt={event.title}
-                      sx={{ 
-                        position: 'absolute',
-                        top: 0,
-                        left: 0,
-                        width: '100%',
-                        height: '100%',
-                        objectFit: 'cover',
-                        objectPosition: 'center center' /* Meilleur centrage */
-                      }}
-                    />
+      <Box sx={{ mb: 4 }}>
+        <MotionBox
+          component={Grid}
+          container
+          spacing={3}
+          variants={containerVariants}
+          initial="hidden"
+          animate="visible"
+        >
+          {athlete.events.map((event) => (
+            <Grid item xs={12} sm={6} md={4} key={event.id}>
+              <MotionCard variants={itemVariants} sx={{ height: '100%' }}>
+                <Box sx={{ 
+                  position: 'relative', 
+                  paddingTop: '100%', /* Format carré 1:1 */
+                  overflow: 'hidden'
+                }}>
+                  <CardMedia
+                    component="img"
+                    image={event.image}
+                    alt={event.title}
+                    sx={{ 
+                      position: 'absolute',
+                      top: 0,
+                      left: 0,
+                      width: '100%',
+                      height: '100%',
+                      objectFit: 'cover',
+                      objectPosition: 'center center' /* Meilleur centrage */
+                    }}
+                  />
+                </Box>
+                <CardContent>
+                  <Typography variant="h5" component="h3" gutterBottom>
+                    {event.title}
+                  </Typography>
+                  <Typography variant="body2" color="text.secondary" paragraph>
+                    {event.date}
+                  </Typography>
+                  <Typography variant="body2" paragraph>
+                    {event.description}
+                  </Typography>
+                  <Box sx={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
+                    <Typography variant="h6" color="primary">
+                      {event.price} €
+                    </Typography>
+                    <Button 
+                      variant="contained" 
+                      size="small"
+                      startIcon={<ShoppingCartIcon />}
+                      disabled={!event.forSale}
+                    >
+                      Acheter
+                    </Button>
                   </Box>
-                  <CardContent>
-                    <Typography variant="h5" component="h3" gutterBottom>
-                      {event.title}
-                    </Typography>
-                    <Typography variant="body2" color="text.secondary" paragraph>
-                      {event.date}
-                    </Typography>
-                    <Typography variant="body2" paragraph>
-                      {event.description}
-                    </Typography>
-                    <Box sx={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
-                      <Typography variant="h6" color="primary">
-                        {event.price} €
-                      </Typography>
-                      <Button 
-                        variant="contained" 
-                        size="small"
-                        startIcon={<ShoppingCartIcon />}
-                        disabled={!event.forSale}
-                      >
-                        Acheter
-                      </Button>
-                    </Box>
-                  </CardContent>
-                </MotionCard>
-              </Grid>
-            ))}
-          </MotionBox>
-        )}
-      </Box>
-
-      {/* Magazines Tab Panel */}
-      <Box
-        role="tabpanel"
-        hidden={tabValue !== 1}
-        id="tabpanel-1"
-        aria-labelledby="tab-1"
-      >
-        {tabValue === 1 && (
-          <MotionBox
-            component={Grid}
-            container
-            spacing={3}
-            variants={containerVariants}
-            initial="hidden"
-            animate="visible"
-          >
-            {athlete.magazines.map((magazine) => (
-              <Grid item xs={12} sm={6} md={4} key={magazine.id}>
-                <MotionCard variants={itemVariants} sx={{ height: '100%' }}>
-                  <Box sx={{ 
-                    position: 'relative', 
-                    paddingTop: '100%', /* Format carré 1:1 */
-                    overflow: 'hidden'
-                  }}>
-                    <CardMedia
-                      component="img"
-                      image={magazine.image}
-                      alt={magazine.title}
-                      sx={{ 
-                        position: 'absolute',
-                        top: 0,
-                        left: 0,
-                        width: '100%',
-                        height: '100%',
-                        objectFit: 'cover',
-                        objectPosition: 'center center' /* Meilleur centrage */
-                      }}
-                    />
-                  </Box>
-                  <CardContent>
-                    <Typography variant="h5" component="h3" gutterBottom>
-                      {magazine.title}
-                    </Typography>
-                    <Typography variant="body2" color="text.secondary" paragraph>
-                      {magazine.date}
-                    </Typography>
-                    <Typography variant="body2" paragraph>
-                      {magazine.description}
-                    </Typography>
-                    <Box sx={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
-                      <Typography variant="h6" color="primary">
-                        {magazine.price} €
-                      </Typography>
-                      <Button 
-                        variant="contained" 
-                        size="small"
-                        startIcon={<ShoppingCartIcon />}
-                        disabled={!magazine.forSale}
-                      >
-                        Acheter
-                      </Button>
-                    </Box>
-                  </CardContent>
-                </MotionCard>
-              </Grid>
-            ))}
-          </MotionBox>
-        )}
+                </CardContent>
+              </MotionCard>
+            </Grid>
+          ))}
+        </MotionBox>
       </Box>
     </Container>
   );

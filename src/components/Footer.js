@@ -95,11 +95,7 @@ const Footer = () => {
                   Événements
                 </Link>
               </Box>
-              <Box component="li" sx={{ mb: 1 }}>
-                <Link component={RouterLink} to="/shop?tab=2" color="inherit" underline="hover">
-                  LIVRES / MAGAZINES
-                </Link>
-              </Box>
+
             </Box>
           </Grid>
           
