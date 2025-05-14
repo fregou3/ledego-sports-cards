@@ -2,12 +2,12 @@
 const celebritiesData = [
   {
     id: 1,
-    name: "Pierre Gagnaire",
+    name: "Michel Jean",
     profileImage: "/images/profiles/PierreGagnaire/profil.jpg",
     profession: "Chef cuisinier",
     nationality: "France",
     birthDate: "9 avril 1950",
-    description: "Pierre Gagnaire est un chef cuisinier français trois étoiles au Guide Michelin. Il est reconnu pour sa cuisine créative et innovante qui repousse les limites de la gastronomie.",
+    description: "Michel Jean est un chef cuisinier français trois étoiles au Guide Michelin. Il est reconnu pour sa cuisine créative et innovante qui repousse les limites de la gastronomie.",
     price: 40,
     forSale: true,
     events: [
@@ -27,7 +27,7 @@ const celebritiesData = [
         title: "Le Chef 2010",
         image: "/images/profiles/PierreGagnaire/le_chef_2010.jpg",
         date: "2010",
-        description: "Couverture du magazine Le Chef consacrée à Pierre Gagnaire et sa vision révolutionnaire de la cuisine française contemporaine.",
+        description: "Couverture du magazine Le Chef consacrée à Michel Jean et sa vision révolutionnaire de la cuisine française contemporaine.",
         price: 19,
         forSale: true,
       }

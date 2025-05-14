@@ -2,12 +2,12 @@
 const artistsData = [
   {
     id: 1,
-    name: "Bob Sinclar",
+    name: "DJ Max",
     profileImage: "/images/profiles/BobSinclar/profil.jpg",
     art: "Musique",
     nationality: "France",
     birthDate: "10 mai 1969",
-    description: "Bob Sinclar est un DJ et producteur de musique électronique français. Il est connu pour ses tubes comme 'Love Generation' et 'World, Hold On'.",
+    description: "DJ Max est un DJ et producteur de musique électronique français. Il est connu pour ses tubes comme 'Love Generation' et 'World, Hold On'.",
     price: 36,
     forSale: true,
     events: [
@@ -16,7 +16,7 @@ const artistsData = [
         title: "Tournée mondiale 2012",
         image: "/images/profiles/BobSinclar/tournee_2012.jpg",
         date: "2012",
-        description: "Tournée mondiale de Bob Sinclar qui a marqué l'apogée de sa carrière avec des concerts dans plus de 30 pays.",
+        description: "Tournée mondiale de DJ Max qui a marqué l'apogée de sa carrière avec des concerts dans plus de 30 pays.",
         price: 19,
         forSale: true,
       }
@@ -27,7 +27,7 @@ const artistsData = [
         title: "DJ Mag 2008",
         image: "/images/profiles/BobSinclar/dj_mag_2008.jpg",
         date: "2008",
-        description: "Couverture du magazine DJ Mag avec Bob Sinclar classé parmi les meilleurs DJs mondiaux.",
+        description: "Couverture du magazine DJ Mag avec DJ Max classé parmi les meilleurs DJs mondiaux.",
         price: 18,
         forSale: true,
       }
