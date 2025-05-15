@@ -3,7 +3,7 @@ const celebritiesData = [
   {
     id: 1,
     name: "Michel Jean",
-    profileImage: "/images/profiles/PierreGagnaire/profil.jpg",
+    profileImage: "/images/profiles/PierreGagnaire/profil.png",
     profession: "Chef cuisinier",
     nationality: "France",
     birthDate: "9 avril 1950",
@@ -14,7 +14,7 @@ const celebritiesData = [
       {
         id: 101,
         title: "Ouverture restaurant Paris",
-        image: "/images/profiles/PierreGagnaire/restaurant_paris.jpg",
+        image: "/images/profiles/PierreGagnaire/restaurant_paris.png",
         date: "1996",
         description: "Ouverture de son restaurant éponyme à Paris, qui a obtenu trois étoiles au Guide Michelin en seulement deux ans.",
         price: 20,

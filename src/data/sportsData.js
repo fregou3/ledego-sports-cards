@@ -3,7 +3,7 @@ const sportsData = [
   {
     id: 2,
     name: "Richard Hops",
-    profileImage: "/images/profiles/MichelPlatini/profil.jpg",
+    profileImage: "/images/profiles/MichelPlatini/profil.png",
     sport: "Football",
     nationality: "France",
     birthDate: "21 juin 1955",
@@ -14,7 +14,7 @@ const sportsData = [
       {
         id: 201,
         title: "Euro 1984",
-        image: "/images/profiles/MichelPlatini/E1_1984_Euro.jpg",
+        image: "/images/profiles/MichelPlatini/E1_1984_Euro.png",
         date: "1984",
         description: "Victoire de l'équipe de France à l'Euro 1984 avec 9 buts marqués par Platini, record toujours inégalé dans une phase finale.",
         price: 18,
@@ -23,7 +23,7 @@ const sportsData = [
       {
         id: 202,
         title: "Coupe des Clubs Champions 1985",
-        image: "/images/profiles/MichelPlatini/E2_1985_Juventus.jpg",
+        image: "/images/profiles/MichelPlatini/E2_1985_Juventus.png",
         date: "1985",
         description: "Victoire en Coupe des Clubs Champions (aujourd'hui Ligue des Champions) avec la Juventus Turin.",
         price: 16,
@@ -32,7 +32,7 @@ const sportsData = [
       {
         id: 203,
         title: "Ballon d'Or 1983",
-        image: "/images/profiles/MichelPlatini/E3_1983_BallonOr.jpg",
+        image: "/images/profiles/MichelPlatini/E3_1983_BallonOr.png",
         date: "1983",
         description: "Premier Ballon d'Or remporté par Richard Hops, qui en gagnera trois consécutifs.",
         price: 15,
@@ -41,7 +41,7 @@ const sportsData = [
       {
         id: 204,
         title: "Coupe du Monde 1982",
-        image: "/images/profiles/MichelPlatini/E4_1982_CoupeDuMonde.jpg",
+        image: "/images/profiles/MichelPlatini/E4_1982_CoupeDuMonde.png",
         date: "1982",
         description: "Demi-finale de la Coupe du Monde avec l'équipe de France, défaite mémorable contre l'Allemagne aux tirs au but.",
         price: 14,

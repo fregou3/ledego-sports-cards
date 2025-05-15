@@ -3,7 +3,7 @@ const artistsData = [
   {
     id: 1,
     name: "DJ Max",
-    profileImage: "/images/profiles/BobSinclar/profil.jpg",
+    profileImage: "/images/profiles/BobSinclar/profil.png",
     art: "Musique",
     nationality: "France",
     birthDate: "10 mai 1969",
@@ -14,7 +14,7 @@ const artistsData = [
       {
         id: 101,
         title: "Tournée mondiale 2012",
-        image: "/images/profiles/BobSinclar/tournee_2012.jpg",
+        image: "/images/profiles/BobSinclar/tournee_2012.png",
         date: "2012",
         description: "Tournée mondiale de DJ Max qui a marqué l'apogée de sa carrière avec des concerts dans plus de 30 pays.",
         price: 19,
